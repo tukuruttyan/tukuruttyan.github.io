@@ -240,11 +240,36 @@ import GameCard from '../components/GameCard.astro'
     mobilePreview.innerHTML = createGameCardHTML(data, true);
   }
 
+  // Function to read URL parameters and populate form fields
+  function populateFromURLParams() {
+    const urlParams = new URLSearchParams(window.location.search);
+    
+    // Map URL parameters to form fields
+    const paramMap = {
+      'thumbnail': thumbnailInput,
+      'title': titleInput,
+      'team': teamInput,
+      'link': linkInput,
+      'description': descriptionInput
+    };
+    
+    // Set values from URL parameters if they exist
+    Object.keys(paramMap).forEach(paramName => {
+      const paramValue = urlParams.get(paramName);
+      if (paramValue !== null && paramValue.trim() !== '') {
+        paramMap[paramName].value = decodeURIComponent(paramValue);
+      }
+    });
+  }
+
   // Add event listeners to all inputs
   [thumbnailInput, titleInput, teamInput, linkInput, descriptionInput].forEach(input => {
     input.addEventListener('input', updatePreviews);
   });
 
+  // Populate form fields from URL parameters if available
+  populateFromURLParams();
+  
   // Initial preview update
   updatePreviews();
 </script>
