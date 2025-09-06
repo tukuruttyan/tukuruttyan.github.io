@@ -1,0 +1,154 @@
+---
+import '../styles/global.css'
+import GameCard from '../components/GameCard.astro'
+---
+
+<html lang="ja">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" type="image/x-icon" href="/favicon.ico" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="generator" content={Astro.generator} />
+		<title>作るっちゃん | 公式サイト</title>
+	</head>
+	<body class="bg-gray-50 text-gray-900">
+		<!-- Header -->
+		<header class="bg-white shadow-sm sticky top-0 z-50">
+			<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+				<div class="flex justify-between items-center py-4">
+					<!-- Logo -->
+					<div class="flex items-center">
+						<img src="/logo.png" alt="作るっちゃん" class="h-10 w-auto" />
+					</div>
+					
+					<!-- Navigation -->
+					<nav class="flex space-x-8">
+						<a href="#overview" class="text-gray-700 hover:text-gray-900 font-medium transition-colors">概要</a>
+						<a href="#games" class="text-gray-700 hover:text-gray-900 font-medium transition-colors">ゲーム</a>
+					</nav>
+				</div>
+			</div>
+		</header>
+
+		<main>
+			<!-- Overview Section -->
+			<section id="overview" class="py-16 bg-white">
+				<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+					<div class="text-center mb-12">
+						<!-- Main Visual -->
+						<div class="mb-8">
+							<img src="/key-visual.png" alt="作るっちゃん キービジュアル" class="w-48 h-48 mx-auto rounded-lg object-cover">
+						</div>
+						
+						<!-- Overview Text -->
+						<div class="max-w-3xl mx-auto">
+							<h1 class="text-4xl font-bold mb-6">作るっちゃんとは？</h1>
+							<p class="text-lg text-gray-600 leading-relaxed mb-4">ズバリ、「福岡学生ゲーム制作コミュニティ」です！</p>
+							<p class="text-lg text-gray-600 leading-relaxed">福岡のゲーム制作をしている・興味がある学生が学校の垣根を超えて集い、高め会える場を目指しています</p>
+							<p class="text-lg text-gray-600 leading-relaxed">具体的には、専用discordサーバーの運用とオフラインでの交流会・ゲームジャムの開催などを行っています</p>
+							<p class="text-lg text-gray-600 leading-relaxed mb-8">もしマッチするかも...！と思った方がいましたら遠慮なくご連絡下さい！</p>
+
+							<!-- Social Media Buttons -->
+							<div class="flex justify-center space-x-4 mb-6">
+								<!-- X (Twitter) Button -->
+								<a href="https://twitter.com/tukuruttyan" 
+								   target="_blank" 
+								   rel="noopener noreferrer"
+								   class="w-18 h-18 bg-white hover:bg-gray-50 rounded-full flex items-center justify-center transition-colors shadow-lg hover:shadow-xl border-2 border-gray-100">
+									<img src="/x-logo/logo-black.png" alt="X (Twitter)" class="w-8 h-8">
+								</a>
+								
+								<!-- Note Button -->
+								<a href="https://note.com/tukuruttyan" 
+								   target="_blank" 
+								   rel="noopener noreferrer"
+								   class="w-18 h-18 bg-white hover:bg-gray-50 rounded-full flex items-center justify-center transition-colors shadow-lg hover:shadow-xl border-2 border-gray-100">
+									<img src="/note Visual Identity/note Visual Identity/main/icon.png" alt="Note" class="w-12 h-12">
+								</a>
+							</div>
+
+							<!-- Twitter/X Embed -->
+							<div class="max-w-lg mx-auto mt-8">
+								<a class="twitter-timeline" 
+								   data-height="400" 
+								   data-theme="light" 
+								   href="https://twitter.com/tukuruttyan?ref_src=twsrc%5Etfw">
+								   Tweets by tukuruttyan
+								</a>
+								<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<section id="games" class="py-16 bg-gray-50">
+				<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+					<div class="text-center mb-12">
+						<h2 class="text-3xl font-bold mb-4">ゲーム</h2>
+						<p class="text-lg text-gray-600">作るっちゃんメンバーが携わった作品の一覧です！</p>
+					</div>
+					
+					<div class="grid grid-cols-1 gap-8">
+						<GameCard
+							title="プロジェクトタイトル1" 
+							teamName="チーム名1" 
+							description="この作品はWebデザインとフロントエンド開発の技術を組み合わせて制作しました。" 
+							publishedDate="2024年12月15日"
+							link="https://example.com/project1"
+						/>
+						
+						<GameCard
+							title="プロジェクトタイトル2" 
+							teamName="チーム名2" 
+							description="モバイルアプリケーションのUI/UXデザインプロジェクト。直感的な操作性を実現しました。" 
+							publishedDate="2024年11月28日"
+							link="https://example.com/project2"
+						/>
+						
+						<GameCard
+							title="プロジェクトタイトル3" 
+							teamName="チーム名3" 
+							description="ブランディングプロジェクトとして、一貫したデザインシステムを構築しました。" 
+							publishedDate="2024年10月22日"
+							link="https://example.com/project3"
+						/>
+						
+						<GameCard
+							title="プロジェクトタイトル4" 
+							teamName="チーム名4" 
+							description="データビジュアライゼーションツールの開発。複雑なデータを分かりやすく視覚化しました。" 
+							publishedDate="2024年9月10日"
+							link="https://example.com/project4"
+						/>
+						
+						<GameCard
+							title="プロジェクトタイトル5" 
+							teamName="チーム名5" 
+							description="ECサイトのリニューアルプロジェクト。コンバージョン率向上を目指しました。" 
+							publishedDate="2024年8月5日"
+							link="https://example.com/project5"
+						/>
+						
+						<GameCard
+							title="プロジェクトタイトル6" 
+							teamName="チーム名6" 
+							description="イラストレーションとグラフィックデザインを組み合わせたパッケージデザイン。。。ｆ；ｌじゃうぇｆｋｌｇｊｌｋｗｇｊヶｊｌｋｊｋｌ」ｇｋｌｗｊｇｋｌｗｌｊイラストレーションとグラフィックデザインを組み合わせたパッケージデザイン。。。ｆ；ｌじゃうぇｆｋｌｇｊｌｋｗｇｊヶｊｌｋｊｋｌ」ｇｋｌｗｊｇｋｌｗｌｊイラストレーションとグラフィックデザインを組み合わせたパッケージデザイン。。。ｆ；ｌじゃうぇｆｋｌｇｊｌｋｗｇｊヶｊｌｋｊｋｌ」ｇｋｌｗｊｇｋｌｗｌｊイラストレーションとグラフィックデザインを組み合わせたパッケージデザイン。。。ｆ；ｌじゃうぇｆｋｌｇｊｌｋｗｇｊヶｊｌｋｊｋｌ」ｇｋｌｗｊｇｋｌｗｌｊイラストレーションとグラフィックデザインを組み合わせたパッケージデザイン。。。ｆ；ｌじゃうぇｆｋｌｇｊｌｋｗｇｊヶｊｌｋｊｋｌ」ｇｋｌｗｊｇｋｌｗｌｊイラストレーションとグラフィックデザインを組み合わせたパッケージデザイン。。。ｆ；ｌじゃうぇｆｋｌｇｊｌｋｗｇｊヶｊｌｋｊｋｌ」ｇｋｌｗｊｇｋｌｗｌｊイラストレーションとグラフィックデザインを組み合わせたパッケージデザイン。。。ｆ；ｌじゃうぇｆｋｌｇｊｌｋｗｇｊヶｊｌｋｊｋｌ」ｇｋｌｗｊｇｋｌｗｌｊイラストレーションとグラフィックデザインを組み合わせたパッケージデザイン。。。ｆ；ｌじゃうぇｆｋｌｇｊｌｋｗｇｊヶｊｌｋｊｋｌ」ｇｋｌｗｊｇｋｌｗｌｊイラストレーションとグラフィックデザインを組み合わせたパッケージデザイン。。。ｆ；ｌじゃうぇｆｋｌｇｊｌｋｗｇｊヶｊｌｋｊｋｌ」ｇｋｌｗｊｇｋｌｗｌｊイラストレーションとグラフィックデザインを組み合わせたパッケージデザイン。。。ｆ；ｌじゃうぇｆｋｌｇｊｌｋｗｇｊヶｊｌｋｊｋｌ」ｇｋｌｗｊｇｋｌｗｌｊ"
+							publishedDate="2024年7月18日"
+							link="https://example.com/project6"
+						/>
+					</div>
+				</div>
+			</section>
+		</main>
+
+		<!-- Footer -->
+		<footer class="bg-gray-900 text-white py-8">
+			<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+				<div class="text-center">
+					<p>&copy; 2025 作るっちゃん</p>
+				</div>
+			</div>
+		</footer>
+	</body>
+</html>
