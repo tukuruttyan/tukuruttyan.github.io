@@ -8,6 +8,25 @@ export interface Props {
 }
 
 const { title, teamName, description, publishedDate, link } = Astro.props;
+
+// Simple markdown parser function
+function parseMarkdown(text) {
+  if (!text) return '';
+  
+  return text
+    // Bold with **text** or __text__
+    .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+    .replace(/__(.*?)__/g, '<strong>$1</strong>')
+    // Italic with *text* or _text_ (but not inside bold)
+    .replace(/(?<!\*)\*([^*]+?)\*(?!\*)/g, '<em>$1</em>')
+    .replace(/(?<!_)_([^_]+?)_(?!_)/g, '<em>$1</em>')
+    // Links with [text](url)
+    .replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" target="_blank" rel="noopener noreferrer" class="text-blue-400 hover:text-blue-600 underline">$1</a>')
+    // Line breaks (double line breaks become paragraphs)
+    .replace(/\n\n/g, '</p><p>')
+    // Single line breaks become <br>
+    .replace(/\n/g, '<br>');
+}
 ---
 
 <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow relative">
@@ -36,9 +55,7 @@ const { title, teamName, description, publishedDate, link } = Astro.props;
         <h3 class="text-lg sm:text-xl font-semibold mb-2 text-gray-900">{title}</h3>
       )}
       <p class="text-sm text-gray-500 mb-2">{teamName}</p>
-      <p class="text-sm text-gray-600 leading-relaxed">
-        {description}
-      </p>
+      <div class="text-sm text-gray-600 leading-relaxed" set:html={`<p>${parseMarkdown(description)}</p>`}></div>
     </div>
   </div>
   <!-- Publication date positioned at bottom-right -->
