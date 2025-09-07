@@ -1,10 +1,10 @@
 [
   {
-    "title": "test",
-    "teamName": "fwlekle",
-    "description": "test",
-    "buildJsonFromSheetAndCommit": "2025/09/06 15:19:43",
-    "link": "test",
-    "thumbnailUrl": "testtset"
+    "title": "MultiSweepers",
+    "teamName": "ゲーム制作をしてみよう@作るっちゃん チームa. Kana, あ, まほ, サクヤ, ニコマル, ヒライ, へのへのん",
+    "description": "複数人でマインスイーパーをするゲームです！\nSoldierとCommanderに分かれてIDを共有し、爆弾を避けてタイルを全て開けていきます！",
+    "buildJsonFromSheetAndCommit": "2025/09/07 16:26:49",
+    "link": "https://unityroom.com/games/multi-sweeper",
+    "thumbnailUrl": "https://raw.githubusercontent.com/henohenon/henohenon.github.io/2a0f89a30c3953bb582de7ba72be33d16170cb51/assets/multisweeper-logo.png"
   }
 ]
