@@ -5,9 +5,10 @@ export interface Props {
   description: string;
   publishedDate: string;
   link?: string;
+  thumbnailUrl?: string;
 }
 
-const { title, teamName, description, publishedDate, link } = Astro.props;
+const { title, teamName, description, publishedDate, link, thumbnailUrl } = Astro.props;
 
 // Simple markdown parser function
 function parseMarkdown(text) {
@@ -35,14 +36,32 @@ function parseMarkdown(text) {
     <div class="p-4 flex-shrink-0">
       {link ? (
         <a href={link} target="_blank" rel="noopener noreferrer" class="block">
-          <div class="w-full aspect-video sm:w-96 sm:h-54 bg-gray-200 flex items-center justify-center rounded-lg hover:bg-gray-300 transition-colors cursor-pointer">
-            <span class="text-lg text-gray-400">サムネイル</span>
-          </div>
+          {thumbnailUrl ? (
+            <img 
+              src={thumbnailUrl} 
+              alt={title}
+              class="w-full aspect-video sm:w-96 sm:h-54 bg-gray-200 rounded-lg object-cover hover:opacity-90 transition-opacity cursor-pointer"
+              loading="lazy"
+            />
+          ) : (
+            <div class="w-full aspect-video sm:w-96 sm:h-54 bg-gray-200 flex items-center justify-center rounded-lg hover:bg-gray-300 transition-colors cursor-pointer">
+              <span class="text-lg text-gray-400">サムネイル</span>
+            </div>
+          )}
         </a>
       ) : (
-        <div class="w-full aspect-video sm:w-96 sm:h-54 bg-gray-200 flex items-center justify-center rounded-lg">
-          <span class="text-lg text-gray-400">サムネイル</span>
-        </div>
+        thumbnailUrl ? (
+          <img 
+            src={thumbnailUrl} 
+            alt={title}
+            class="w-full aspect-video sm:w-96 sm:h-54 bg-gray-200 rounded-lg object-cover"
+            loading="lazy"
+          />
+        ) : (
+          <div class="w-full aspect-video sm:w-96 sm:h-54 bg-gray-200 flex items-center justify-center rounded-lg">
+            <span class="text-lg text-gray-400">サムネイル</span>
+          </div>
+        )
       )}
     </div>
     <!-- Content -->

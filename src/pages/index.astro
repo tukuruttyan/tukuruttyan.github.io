@@ -1,6 +1,12 @@
 ---
 import '../styles/global.css'
 import GameCard from '../components/GameCard.astro'
+import { gamesData } from '../data/games.ts'
+
+// Use static games data instead of dynamic fetch
+// Data is generated at build time by the fetch-games-data script
+const gameData = gamesData;
+console.log(`Using ${gameData.length} published games from static data`);
 ---
 
 <html lang="ja">
@@ -66,17 +72,20 @@ import GameCard from '../components/GameCard.astro'
 									<img src="/note Visual Identity/note Visual Identity/main/icon.png" alt="Note" class="w-12 h-12">
 								</a>
 							</div>
+						</div>
+					</div>
 
-							<!-- Twitter/X Embed -->
-							<div class="max-w-lg mx-auto mt-8">
-								<a class="twitter-timeline" 
-								   data-height="400" 
-								   data-theme="light" 
-								   href="https://twitter.com/tukuruttyan?ref_src=twsrc%5Etfw">
-								   Tweets by tukuruttyan
-								</a>
-								<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-							</div>
+					<!-- Latest Information Section -->
+					<div class="mt-16 max-w-3xl mx-auto">
+						<h2 class="text-3xl font-bold text-center mb-8">最新情報</h2>
+						<div class="max-w-lg mx-auto mt-8">
+							<a class="twitter-timeline"
+								 data-height="400"
+								 data-theme="light"
+								 href="https://twitter.com/tukuruttyan?ref_src=twsrc%5Etfw">
+								Tweets by tukuruttyan
+							</a>
+							<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 						</div>
 					</div>
 				</div>
@@ -90,53 +99,23 @@ import GameCard from '../components/GameCard.astro'
 					</div>
 					
 					<div class="grid grid-cols-1 gap-8">
-						<GameCard
-							title="プロジェクトタイトル1" 
-							teamName="チーム名1" 
-							description="この作品はWebデザインとフロントエンド開発の技術を組み合わせて制作しました。" 
-							publishedDate="2024年12月15日"
-							link="https://example.com/project1"
-						/>
-						
-						<GameCard
-							title="プロジェクトタイトル2" 
-							teamName="チーム名2" 
-							description="モバイルアプリケーションのUI/UXデザインプロジェクト。直感的な操作性を実現しました。" 
-							publishedDate="2024年11月28日"
-							link="https://example.com/project2"
-						/>
-						
-						<GameCard
-							title="プロジェクトタイトル3" 
-							teamName="チーム名3" 
-							description="ブランディングプロジェクトとして、一貫したデザインシステムを構築しました。" 
-							publishedDate="2024年10月22日"
-							link="https://example.com/project3"
-						/>
-						
-						<GameCard
-							title="プロジェクトタイトル4" 
-							teamName="チーム名4" 
-							description="データビジュアライゼーションツールの開発。複雑なデータを分かりやすく視覚化しました。" 
-							publishedDate="2024年9月10日"
-							link="https://example.com/project4"
-						/>
-						
-						<GameCard
-							title="プロジェクトタイトル5" 
-							teamName="チーム名5" 
-							description="ECサイトのリニューアルプロジェクト。コンバージョン率向上を目指しました。" 
-							publishedDate="2024年8月5日"
-							link="https://example.com/project5"
-						/>
-						
-						<GameCard
-							title="プロジェクトタイトル6" 
-							teamName="チーム名6" 
-							description="イラストレーションとグラフィックデザインを組み合わせたパッケージデザイン。。。ｆ；ｌじゃうぇｆｋｌｇｊｌｋｗｇｊヶｊｌｋｊｋｌ」ｇｋｌｗｊｇｋｌｗｌｊイラストレーションとグラフィックデザインを組み合わせたパッケージデザイン。。。ｆ；ｌじゃうぇｆｋｌｇｊｌｋｗｇｊヶｊｌｋｊｋｌ」ｇｋｌｗｊｇｋｌｗｌｊイラストレーションとグラフィックデザインを組み合わせたパッケージデザイン。。。ｆ；ｌじゃうぇｆｋｌｇｊｌｋｗｇｊヶｊｌｋｊｋｌ」ｇｋｌｗｊｇｋｌｗｌｊイラストレーションとグラフィックデザインを組み合わせたパッケージデザイン。。。ｆ；ｌじゃうぇｆｋｌｇｊｌｋｗｇｊヶｊｌｋｊｋｌ」ｇｋｌｗｊｇｋｌｗｌｊイラストレーションとグラフィックデザインを組み合わせたパッケージデザイン。。。ｆ；ｌじゃうぇｆｋｌｇｊｌｋｗｇｊヶｊｌｋｊｋｌ」ｇｋｌｗｊｇｋｌｗｌｊイラストレーションとグラフィックデザインを組み合わせたパッケージデザイン。。。ｆ；ｌじゃうぇｆｋｌｇｊｌｋｗｇｊヶｊｌｋｊｋｌ」ｇｋｌｗｊｇｋｌｗｌｊイラストレーションとグラフィックデザインを組み合わせたパッケージデザイン。。。ｆ；ｌじゃうぇｆｋｌｇｊｌｋｗｇｊヶｊｌｋｊｋｌ」ｇｋｌｗｊｇｋｌｗｌｊイラストレーションとグラフィックデザインを組み合わせたパッケージデザイン。。。ｆ；ｌじゃうぇｆｋｌｇｊｌｋｗｇｊヶｊｌｋｊｋｌ」ｇｋｌｗｊｇｋｌｗｌｊイラストレーションとグラフィックデザインを組み合わせたパッケージデザイン。。。ｆ；ｌじゃうぇｆｋｌｇｊｌｋｗｇｊヶｊｌｋｊｋｌ」ｇｋｌｗｊｇｋｌｗｌｊイラストレーションとグラフィックデザインを組み合わせたパッケージデザイン。。。ｆ；ｌじゃうぇｆｋｌｇｊｌｋｗｇｊヶｊｌｋｊｋｌ」ｇｋｌｗｊｇｋｌｗｌｊ"
-							publishedDate="2024年7月18日"
-							link="https://example.com/project6"
-						/>
+						{gameData.length > 0 ? (
+							gameData.map((game) => (
+								<GameCard
+									title={game.title}
+									teamName={game.teamName}
+									description={game.description}
+									publishedDate={game.publishedDate}
+									link={game.link}
+									thumbnailUrl={game.thumbnailUrl}
+								/>
+							))
+						) : (
+							<div class="text-center py-12">
+								<p class="text-lg text-gray-500 mb-4">現在公開されているゲームはありません</p>
+								<p class="text-sm text-gray-400">新しい作品が追加されるまでお待ちください</p>
+							</div>
+						)}
 					</div>
 				</div>
 			</section>
