@@ -1,5 +1,5 @@
 // Auto-generated file - do not edit manually
-// Generated at: 2025-09-07T05:56:43.073Z
+// Generated at: 2025-09-07T06:16:04.358Z
 
 export interface GameData {
   title: string;
