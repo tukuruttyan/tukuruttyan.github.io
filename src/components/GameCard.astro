@@ -11,7 +11,7 @@ export interface Props {
 const { title, teamName, description, publishedDate, link, thumbnailUrl } = Astro.props;
 
 // Simple markdown parser function
-function parseMarkdown(text) {
+function parseMarkdown(text: string) {
   if (!text) return '';
   
   return text
@@ -27,6 +27,21 @@ function parseMarkdown(text) {
     .replace(/\n\n/g, '</p><p>')
     // Single line breaks become <br>
     .replace(/\n/g, '<br>');
+}
+
+// Date formatting function
+function formatDate(dateString: string) {
+  if (!dateString) return '';
+  
+  // Handle "YYYY/MM/DD" format only
+  const dateMatch = dateString.match(/^(\d{4})\/(\d{2})\/(\d{2})/);
+
+  if (!dateMatch) return dateString; // Return original if format doesn't match
+
+  const [, year, month, day] = dateMatch;
+
+  // Format date only: "YYYY年MM月DD日"
+  return `${year}年${month}月${day}日`;
 }
 ---
 
@@ -78,5 +93,5 @@ function parseMarkdown(text) {
     </div>
   </div>
   <!-- Publication date positioned at bottom-right -->
-  <p class="text-xs text-gray-300 absolute bottom-2 right-4">掲載日: {publishedDate}</p>
+  <p class="text-xs text-gray-300 absolute bottom-2 right-4">掲載日: {formatDate(publishedDate)}</p>
 </div>
