@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width">
+  <title>作るっちゃん | 公式サイト</title>
+  <style>
+    body {
+      background-color: #C5F1FF;
+      font-family: "Hiragino Sans", sans-serif;
+      margin: 0;
+    }
+
+    header {
+      background: white;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      position: sticky;
+      top: 0;
+      z-index: 50;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    nav a {
+      margin-left: 24px;
+      text-decoration: none;
+      color: #555;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: #111;
+    }
+
+    main {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 40px 16px;
+    }
+
+    h1, h2 {
+      color: #333;
+      text-align: center;
+    }
+
+    .social-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      margin-top: 24px;
+    }
+
+    .social-buttons a {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: white;
+      border: 2px solid #eee;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      transition: all 0.3s;
+    }
+
+    .social-buttons a:hover {
+      transform: scale(1.1);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+    }
+
+    /* ゲームカード */
+    .game-card {
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      padding: 16px;
+      display: flex;
+      gap: 16px;
+      background: white;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .game-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+    }
+
+    .game-card img {
+      width: 120px;
+      height: 120px;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+
+    .game-card .info h3 {
+      margin: 0;
+      font-size: 1.2em;
+    }
+
+    .game-card .info p {
+      margin: 4px 0;
+      color: #555;
+    }
+
+    footer {
+      text-align: center;
+      padding: 24px;
+      background: #111;
+      color: white;
+      margin-top: 40px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="container">
+      <div class="logo">
+        <img src="public/logo.png" alt="作るっちゃん" style="height:40px;">
+      </div>
+      <nav>
+        <a href="#overview">概要</a>
+        <a href="#games">作品</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- Overview Section -->
+    <section id="overview">
+      <h1>作るっちゃんとは？</h1>
+      <p style="text-align:center; max-width:600px; margin:8px auto;">
+        ズバリ、「福岡学生ゲーム制作コミュニティ」です！
+      </p>
+      <p style="text-align:center; max-width:600px; margin:8px auto;">
+        福岡のゲーム制作をしている・興味がある学生が学校の垣根を超えて集い、高め会える場を目指しています
+      </p>
+      <p style="text-align:center; max-width:600px; margin:8px auto;">
+        専用discordサーバーの運用とオフラインでの交流会・ゲームジャムの開催などを行っています
+      </p>
+      <p style="text-align:center; max-width:600px; margin:8px auto;">
+        もしマッチするかも…！と思った方がいましたら遠慮なくご連絡下さい！
+      </p>
+
+      <!-- Social Buttons -->
+      <div class="social-buttons">
+        <a href="https://x.com/tukuruttyan" target="_blank">
+          <img src="public/x-logo/logo-black.png" alt="X" style="width:24px;height:24px;">
+        </a>
+        <a href="https://note.com/tukuruttyan" target="_blank">
+          <img src="public/note Visual Identity/icon.png" alt="Note" style="width:24px;height:24px;">
+        </a>
+      </div>
+    </section>
+
+    <!-- Games Section -->
+    <section id="games" style="margin-top:40px;">
+      <h2>ゲーム</h2>
+      <div id="games-container" style="display:flex; flex-direction:column; gap:16px; margin-top:16px; max-width:800px; margin-left:auto; margin-right:auto;">
+        <!-- JSでゲームカード生成 -->
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    &copy; 2025 作るっちゃん
+  </footer>
+
+  <script>
+    // ゲームデータのサンプル
+    const gamesData = [
+      {
+        title: "サンプルゲーム1",
+        teamName: "チームA",
+        description: "楽しいゲームです！",
+        publishedDate: "2025-10-14",
+        link: "#",
+        thumbnailUrl: "https://via.placeholder.com/120"
+      },
+      {
+        title: "サンプルゲーム2",
+        teamName: "チームB",
+        description: "面白いゲームです！",
+        publishedDate: "2025-10-14",
+        link: "#",
+        thumbnailUrl: "https://via.placeholder.com/120"
+      }
+    ];
+
+    const container = document.getElementById('games-container');
+    gamesData.forEach(game => {
+      const card = document.createElement('div');
+      card.className = 'game-card';
+      card.innerHTML = `
+        <img src="${game.thumbnailUrl}" alt="${game.title}">
+        <div class="info">
+          <h3>${game.title}</h3>
+          <p>チーム: ${game.teamName}</p>
+          <p>${game.description}</p>
+          <p>公開日: ${game.publishedDate}</p>
+          <a href="${game.link}">リンク</a>
+        </div>
+      `;
+      container.appendChild(card);
+    });
+  </script>
+
+</body>
+</html>
