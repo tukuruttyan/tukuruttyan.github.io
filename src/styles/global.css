@@ -1,6 +1,8 @@
 @import "tailwindcss";
 
 main{
+    z-index: -99;
+
     position: relative;
     background-image:
             linear-gradient(0deg, transparent calc(100% - 2px), #CDF3FF calc(100% - 2px)),
@@ -13,7 +15,7 @@ main{
 main::before{
     background-color: #E9FAFF;
 
-    z-index: -1;
+    z-index: -100;
 
     content: "";
     position: absolute;
