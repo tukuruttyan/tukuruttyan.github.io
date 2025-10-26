@@ -1,1 +1,30 @@
 @import "tailwindcss";
+
+main{
+    position: relative;
+    background-image:
+            linear-gradient(0deg, transparent calc(100% - 2px), #CDF3FF calc(100% - 2px)),
+            linear-gradient(90deg, transparent calc(100% - 2px), #CDF3FF calc(100% - 2px));
+    background-size: 48px 48px;
+    background-repeat: repeat;
+    background-position: center center;
+}
+
+main::before{
+    background-color: #E9FAFF;
+
+    z-index: -1;
+
+    content: "";
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: auto;
+
+    background-image:
+            linear-gradient(0deg, transparent calc(100% - 1px), #CDF3FF calc(100% - 1px)),
+            linear-gradient(90deg, transparent calc(100% - 1px), #CDF3FF calc(100% - 1px));
+    background-size: 48px 48px;
+    background-repeat: repeat;
+    background-position: calc(50% + 24px) calc(50% + 24px);
+}
